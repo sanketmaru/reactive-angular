@@ -1,1 +1,9 @@
 <p>covid works!</p>
+
+<ul *ngIf='covidSummaryObs | async as summary'>
+    <li>{{summary.Global?.NewConfirmed}}</li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>

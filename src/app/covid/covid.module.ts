@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CovidComponent } from './covid.component';
-
+import { CovidApiService } from '../shared/services/covid.service';
 
 
 @NgModule({
@@ -9,6 +9,7 @@ import { CovidComponent } from './covid.component';
   imports: [
     CommonModule
   ],
-  exports:[CovidComponent]
+  providers: [CovidApiService],
+  exports: [CovidComponent]
 })
 export class CovidModule { }
