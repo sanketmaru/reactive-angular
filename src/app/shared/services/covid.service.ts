@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 // import { map, catchError } from 'rxjs/operators;
-import { API, CovidSummary } from '../constants';
+import { API, CovidSummary, CountryInfo } from '../constants';
 
 @Injectable({
     providedIn: 'root'
@@ -15,6 +15,11 @@ export class CovidApiService {
     getCovidSummary(): Observable<CovidSummary> {
         const summaryUrl = `${API.baseUrl}/summary`;
         return this.http.get<CovidSummary>(summaryUrl);
+    }
+
+    getCountries(): Observable<CountryInfo[]> {
+        const countryUrl = `${API.baseUrl}/countries`;
+        return this.http.get<CountryInfo[]>(countryUrl);
     }
 
 }

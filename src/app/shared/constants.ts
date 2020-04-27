@@ -14,3 +14,9 @@ export interface GlobalSummary {
     NewRecovered: number;
     TotalRecovered: number;
 }
+
+export interface CountryInfo {
+    Country: string;
+    Slug: string;
+    ISO2: string;
+}

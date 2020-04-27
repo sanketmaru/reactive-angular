@@ -1,9 +1,12 @@
-<p>covid works!</p>
 
-<ul *ngIf='covidSummaryObs | async as summary'>
-    <li>{{summary.Global?.NewConfirmed}}</li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-</ul>
+<h2>Click On Country to get Results</h2>
+
+<ng-container>
+    <div class="countries">
+        <mat-card 
+            *ngFor="let country of covidCountriesObs | async"
+            (click)="getCountryData(country)">
+            {{ country.Country }} 
+        </mat-card>
+    </div>
+</ng-container>
