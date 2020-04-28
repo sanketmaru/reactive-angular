@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CovidComponent } from './covid.component';
 import { CovidApiService } from '../shared/services/covid.service';
-import { MatCardModule } from '@angular/material/card';
-
+import { MatListModule } from '@angular/material/list';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [CovidComponent],
   imports: [
     CommonModule,
-    MatCardModule
+    MatListModule,
+    MatChipsModule
   ],
   providers: [CovidApiService],
   exports: [CovidComponent]

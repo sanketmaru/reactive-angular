@@ -11,17 +11,20 @@ import { CovidSummary, CountryInfo } from '../shared/constants';
 export class CovidComponent implements OnInit {
 
   public covidSummaryObs: Observable<CovidSummary>;
-  public covidCountriesObs: Observable<CountryInfo[]>;
-
+  public countriesObs: Observable<CountryInfo[]>;
+  public covidCountryObs: Observable<any>;
+  public selectedCountry: string;
   constructor(private covidService: CovidApiService, private router: Router) { }
 
   ngOnInit(): void {
     // this.covidSummaryObs = this.covidService.getCovidSummary();
-    this.covidCountriesObs = this.covidService.getCountries();
+    this.countriesObs = this.covidService.getCountries();
   }
 
   getCountryData(country: CountryInfo) {
-    this.router.navigateByUrl(`country/${country}`);
+    this.selectedCountry = country.Country;
+    // this.router.navigateByUrl(`country/${country}`);
+    this.covidCountryObs = this.covidService.getCountryTotalByStatus(country.Slug);
   }
 
 }

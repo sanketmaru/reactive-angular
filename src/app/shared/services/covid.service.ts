@@ -22,4 +22,9 @@ export class CovidApiService {
         return this.http.get<CountryInfo[]>(countryUrl);
     }
 
+    getCountryTotalByStatus(country: string): Observable<any> {
+        const url = `${API.baseUrl}/live/country/${country}/status/confirmed`;
+        return this.http.get<any[]>(url);
+    }
+
 }

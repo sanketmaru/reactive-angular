@@ -2,11 +2,23 @@
 <h2>Click On Country to get Results</h2>
 
 <ng-container>
-    <div class="countries">
-        <mat-card 
-            *ngFor="let country of covidCountriesObs | async"
-            (click)="getCountryData(country)">
-            {{ country.Country }} 
-        </mat-card>
+    <div class="country-container">
+        <mat-list class="countries">
+            <mat-list-item 
+                *ngFor="let country of countriesObs | async"
+                (click)="getCountryData(country)">
+                    {{ country.Country }}
+            </mat-list-item>
+        </mat-list>
+        <div class="country-details">
+            <p>Selected Country Is {{ selectedCountry }} </p>
+            <mat-chip-list aria-label="Fish selection">
+                <!-- <mat-chip *ngFor="let item of covidCountryObs | async"> {{ item.Date | date }}</mat-chip> -->
+                <mat-chip>Confirmed</mat-chip>
+                <mat-chip color="accent">Recovered</mat-chip>
+                <mat-chip color="primary" selected>Deaths</mat-chip>
+              </mat-chip-list>
+        </div>
     </div>
+        
 </ng-container>
